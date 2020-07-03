@@ -27,7 +27,7 @@ class File(models.Model):
     product = models.ForeignKey(
         'market.Product',
         verbose_name='Товар',
-        related_name='files',
+        related_name='images',
         on_delete=models.CASCADE,
         blank=True,
         null=True
