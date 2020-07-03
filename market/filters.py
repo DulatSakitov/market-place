@@ -15,7 +15,7 @@ class PropertyFilter(FilterSet):
         fields = []
 
     def filter_category(self, queryset, name, value):
-        categories = market_models.Product.objects.filter(category_id=value, is_public=True).values_list('category')
+        categories = market_models.Product.objects.filter(category_id=value, on_sale=True).values_list('category')
         return queryset.filter(id__in=categories)
 
 
