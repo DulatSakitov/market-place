@@ -3,7 +3,7 @@ from django.db import models
 from common.validators import validate_file_extension
 
 
-class FileTypeChoices(models.TextChoices):
+class FileTypeChoices(models.IntegerChoices):
     BRAND_LOGO = 1, 'Логотип бренда'
     CATEGORY_ICON = 2, 'Иконка категории'
     PRODUCT_IMAGE = 3, 'Изображение товара'
