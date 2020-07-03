@@ -20,13 +20,15 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles import views
 from market.urls import urlpatterns as market_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dicts/', include('dicts.urls')),
     path('market/', include('market.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('static/<slug:path>', views.serve)
+]
 
 
 schema_view = get_schema_view(
