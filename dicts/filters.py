@@ -18,7 +18,7 @@ class CategoryFilter(FilterSet):
         return queryset.filter(parent=None)
 
     def filter_finite(self, queryset, name, value):
-        return queryset.filter(children=[])
+        return queryset.filter(children=None)
 
     def filter_brand(self, queryset, name, value):
         categories = market_models.Product.objects.filter(brand_id=value, on_sale=True).values_list('category')
